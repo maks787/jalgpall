@@ -1,11 +1,11 @@
-﻿namespace jalgpall;
+namespace jalgpall;
 
 public class Game
 {
-    public Team HomeTeam { get; }
-    public Team AwayTeam { get; }
-    public Stadium Stadium { get; }
-    public Ball Ball { get; private set; }
+    public Team HomeTeam { get; }//1 команда
+    public Team AwayTeam { get; }//2 команда
+    public Stadium Stadium { get; }//стадион
+    public Ball Ball { get; private set; }//мяч
 
     public Game(Team homeTeam, Team awayTeam, Stadium stadium)
     {
