@@ -1,4 +1,4 @@
-﻿using jalgpall;
+using jalgpall;
 
 namespace jalgpall;
 
