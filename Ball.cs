@@ -4,8 +4,8 @@ namespace jalgpall;
 
 public class Ball
 {
-    public double X { get; private set; }
-    public double Y { get; private set; }
+    public double X { get;  set; }
+    public double Y { get;  set; }
 
     private double _vx, _vy;
 
@@ -16,6 +16,10 @@ public class Ball
         _game = game;
         X = x;
         Y = y;
+    }
+
+    public Ball()
+    {
     }
 
     public void SetSpeed(double vx, double vy)
