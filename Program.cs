@@ -1,7 +1,6 @@
+﻿using jalgpall;
 using System;
 using System.Threading;
-
-using jalgpall;
 
 namespace FootballGame
 {
@@ -24,7 +23,6 @@ namespace FootballGame
             ball.X = 20;
             ball.Y = 10;
 
-            
             int player1DirectionX = 1;
             int player2DirectionX = -1;
 
@@ -32,28 +30,19 @@ namespace FootballGame
             {
                 Console.Clear();
 
-                
+                // Простое движение игроков влево и вправо
                 player1.X += player1DirectionX;
                 player2.X += player2DirectionX;
 
-                
-                if (player1.X <= 0 || player1.X >= Console.WindowWidth - 1)
-                    player1DirectionX *= -1;
-
-                if (player2.X <= 0 || player2.X >= Console.WindowWidth - 1)
-                    player2DirectionX *= -1;
-
-                
+                // Управление мячом при приближении игроков
                 if (Math.Abs(player1.X - ball.X) < 2 && Math.Abs(player1.Y - ball.Y) < 2)
                 {
-                    
-                    ball.X += 1;
+                    ball.X += player1DirectionX; // Пнуть мяч вправо
                 }
 
                 if (Math.Abs(player2.X - ball.X) < 2 && Math.Abs(player2.Y - ball.Y) < 2)
                 {
-                    
-                    ball.X -= 1;
+                    ball.X += player2DirectionX; // Пнуть мяч влево
                 }
 
                 Console.SetCursorPosition((int)player1.X, (int)player1.Y);
@@ -68,5 +57,22 @@ namespace FootballGame
                 Thread.Sleep(100);
             }
         }
+    }
+    public class Player
+    {
+        public string Name { get; }
+        public double X { get; set; }
+        public double Y { get; set; }
+
+        public Player(string name)
+        {
+            Name = name;
+        }
+    }
+
+    public class Ball
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
     }
 }
